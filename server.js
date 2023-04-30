@@ -11,6 +11,13 @@ const env = require("dotenv").config()
 const app = express()
 
 /* ***********************
+ * View Engines and Templates
+ *************************/
+app.set("view engine", "ejs")
+app.use(expressLayouts)
+app.set("layout", "./layouts/layout") // not at views root
+
+/* ***********************
  * Routes
  *************************/
 app.use(require("./routes/static"))
@@ -33,9 +40,3 @@ app.listen(port, () => {
   console.log(`app listening on ${host}:${port}`)
 })
 
-/* ***********************
- * View Engines and Templates
- *************************/
-app.set("view engine", "ejs")
-app.use(expressLayouts)
-app.set("layout", "./layouts/layout") // not at views root
