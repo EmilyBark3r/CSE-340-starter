@@ -1,0 +1,14 @@
+<!-- content heading -->
+<% if (title) { %>
+        <h1><%= title %></h1>
+    <% } 
+    else {
+        res.redirect('/')
+    } %>
+
+ <!-- a message.  In the future, when messages have been implemented, 
+    you'll replace the comment(#) with the unescaped mark (—). -->
+ <%# messages() %>
+
+ <!-- vehicles display -->
+ <%- grid %>

@@ -27,6 +27,8 @@ app.get("/", baseController.buildHome)
 // app.get("/", function(req, res) {
 //   res.render("index", {title: "Home"})
 // })
+// Inventory routes
+app.use("/inv", require("./routes/inventoryRoute"))
 
 /* ***********************
  * Local Server Information
