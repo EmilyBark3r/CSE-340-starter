@@ -10,6 +10,7 @@ const expressLayouts = require("express-ejs-layouts")
 const env = require("dotenv").config()
 const baseController = require("./controllers/baseController")
 const app = express()
+const utilities = require("./utilities/")
 
 /* ***********************
  * View Engines and Templates
@@ -23,12 +24,31 @@ app.set("layout", "./layouts/layout") // not at views root
  *************************/
 app.use(require("./routes/static"))
 // Index route
-app.get("/", baseController.buildHome)
+app.get("/", utilities.handleErrors(baseController.buildHome))
 // app.get("/", function(req, res) {
 //   res.render("index", {title: "Home"})
 // })
 // Inventory routes
 app.use("/inv", require("./routes/inventoryRoute"))
+// Error Handling route
+app.use(async (req, res, next) => {
+  next({status: 404, message: 'Abort the mission! I repeat, this page can not be found. Turn back now while you still can!'})
+})
+
+/* ***********************
+* Express Error Handler
+* Place after all other middleware
+*************************/
+app.use(async (err, req, res, next) => {
+  let nav = await utilities.getNav()
+  console.error(`Error at: "${req.originalUrl}": ${err.message}`)
+  if(err.status == 404){ message = err.message} else {message = 'We lost this page. We searched high and low but could not find what you are looking for.'}
+  res.render("errors/error", {
+    title: err.status || 'Server Error',
+    message,
+    nav
+  })
+})
 
 /* ***********************
  * Local Server Information
