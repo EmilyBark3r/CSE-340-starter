@@ -23,13 +23,16 @@ app.set("layout", "./layouts/layout") // not at views root
  * Routes
  *************************/
 app.use(require("./routes/static"))
+
+// Inventory routes
+app.use("/inv", require("./routes/inventoryRoute"))
 // Index route
 app.get("/", utilities.handleErrors(baseController.buildHome))
+//what is this for?
 // app.get("/", function(req, res) {
 //   res.render("index", {title: "Home"})
 // })
-// Inventory routes
-app.use("/inv", require("./routes/inventoryRoute"))
+
 // Error Handling route
 app.use(async (req, res, next) => {
   next({status: 404, message: 'Abort the mission! I repeat, this page can not be found. Turn back now while you still can!'})
