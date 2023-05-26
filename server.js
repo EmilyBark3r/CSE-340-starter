@@ -45,7 +45,8 @@ app.use(async (req, res, next) => {
 app.use(async (err, req, res, next) => {
   let nav = await utilities.getNav()
   console.error(`Error at: "${req.originalUrl}": ${err.message}`)
-  if(err.status == 404){ message = err.message} else {message = 'We lost this page. We searched high and low but could not find what you are looking for.'}
+  if(err.status == 404){ message = err.message} 
+  else {message = 'We lost this page. We searched high and low but could not find what you are looking for.'}
   res.render("errors/error", {
     title: err.status || 'Server Error',
     message,

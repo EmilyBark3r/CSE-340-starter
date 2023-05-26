@@ -154,37 +154,24 @@ li {
   font-family: 'Oswald', sans-serif;
 }
 
-/* error.ejs */
-h1 {
-  font-family: 'Righteous', cursive;
-}
-/* alien */
-$background-color: #03293a;
-
-body {
-  background: #03293a;  
-  padding: 0;
-  margin: 0;
-  height: 100vh;
-  width: 100vw;
-}
-
-.spaceship {
-  width: 20vw;
-  margin-left: 50%;
-  top: 40vh;
-  left: -30vw;
-  position: absolute;
-  z-index: 20;
-}
 
 
-.leg {
-  fill:#65998A;
-}
 
 
-.st1{fill:#2E818E;} .st2{opacity:0.5;fill:#19474C;} .st3{fill:#FFFFFF;} .st4{fill:#1C4420;} .st5{fill:#389B47;} .st6{opacity:0.5;fill:#2E818E;} .st7{fill:#4DB858;} .st8{fill:#ADD799;} .st9{fill:#D9EBCE;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
