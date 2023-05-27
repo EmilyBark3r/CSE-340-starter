@@ -1,34 +1,3 @@
-<style>
-main {
-  padding: 15px;
-  display: grid;
-  grid-template-columns: 1rem 1fr 1rem;
-  grid-template-rows: 1fr;
-}
-li {
-    /* grid-row: 2; */
-    border: 5px solid black;
-    list-style: none;
-    margin-bottom: 15px;
-    text-align: center;
-}
-a {
-    text-decoration: none;
-    color: black;
-}
-ul#inv-display, h1 {
-    grid-column: 2/2;
-    margin-left: auto;
-    margin-right: auto;
-}
-span {
-    font-size: 20px;
-}
-a img {
-    border: 2px solid white;
-    border-radius: 6px;
-}
-</style>
 
 <!-- content heading -->
 <% if (title) { %>
@@ -38,9 +7,41 @@ a img {
         res.redirect('/')
     } %>
 
- <!-- a message.  In the future, when messages have been implemented, 
+ <!-- a message.  In unit 4, when messages have been implemented, 
     you'll replace the comment(#) with the unescaped mark (—). -->
  <%# messages() %>
 
  <!-- vehicles display from (CUSTOM, SEDAN, SPORT, SUV, TRUCK)-->
 <a id="vehicles"><%- grid %></a>
+
+<style>
+    main {
+      padding: 15px;
+      display: grid;
+      grid-template-columns: 1rem 1fr 1rem;
+      grid-template-rows: 1fr;
+    }
+    li {
+        grid-row: 2;
+        border: 5px solid black;
+        list-style: none;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+    a {
+        text-decoration: none;
+        color: black;
+    }
+    ul#inv-display, h1 {
+        grid-column: 2/2;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    span {
+        font-size: 20px;
+    }
+    a img {
+        border: 2px solid white;
+        border-radius: 6px;
+    }
+    </style>

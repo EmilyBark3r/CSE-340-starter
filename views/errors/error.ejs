@@ -1,38 +1,3 @@
-<style>
-  /* error.ejs */
-  main {
-  padding: 40px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr;
-}
-h1 {
-  font-family: 'Righteous', cursive;
-  margin-right: auto;
-}
-/* alien */
-$background-color: #03293a;
-body {
-  background: #03293a;  
-  padding: 0;
-  margin: 0;
-  height: 100vh;
-  width: 100vw;
-}
-.spaceship {
-  width: 15vw;
-  margin-left: 50%;
-  top: 35vh;
-  left: -20vw;
-  position: absolute;
-  z-index: 20;
-} 
-.leg {
-  fill:#65998A;
-}
-.st1{fill:#2E818E;} .st2{opacity:0.5;fill:#19474C;} .st3{fill:#FFFFFF;} .st4{fill:#1C4420;} .st5{fill:#389B47;} .st6{opacity:0.5;fill:#2E818E;} .st7{fill:#4DB858;} .st8{fill:#ADD799;} .st9{fill:#D9EBCE;}
-</style>
-
 <!-- CODE -->
   <% if (title) { %>
 <h1><%= title %></h1>
@@ -42,7 +7,8 @@ body {
 
 <h1 id="errorMessage"><%- message %></h1>
 
-<!-- alien spacecraft -->
+
+<!-- alien spacecraft code -->
 <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 109.3 116.8" class="spaceship">
     <g id="leg-1" class="leg leg__1">
         <path d="M23.5 99.6l8.8-13c.8-1.1.4-2.7-.7-3.4-1.2-.7-2.7-.3-3.3.9L20.8 98c-.4.7-.1 1.7.6 2.1.7.4 1.6.2 2.1-.5z" class="leg"></path>
@@ -116,3 +82,39 @@ body {
       <path d="M33.6 111.7l-1.8-8.6c-.1-.7-.8-1.1-1.5-.9-.7.2-1.1.9-.8 1.5l2.7 8.4 2 4.7-.6-5.1z" class="leg leg__2__tip"></path>
     </g>
   </svg>
+
+<!-- STYLE -->
+  <style>
+    /* error.ejs */
+    main {
+    padding: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+  }
+  h1 {
+    font-family: 'Righteous', cursive;
+    margin-right: auto;
+  }
+  /* alien */
+  $background-color: #03293a;
+  body {
+    background: #03293a;  
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+  }
+  .spaceship {
+    width: 15vw;
+    margin-left: 50%;
+    top: 35vh;
+    left: -20vw;
+    position: absolute;
+    z-index: 20;
+  } 
+  .leg {
+    fill:#65998A;
+  }
+  .st1{fill:#2E818E;} .st2{opacity:0.5;fill:#19474C;} .st3{fill:#FFFFFF;} .st4{fill:#1C4420;} .st5{fill:#389B47;} .st6{opacity:0.5;fill:#2E818E;} .st7{fill:#4DB858;} .st8{fill:#ADD799;} .st9{fill:#D9EBCE;}
+  </style>
