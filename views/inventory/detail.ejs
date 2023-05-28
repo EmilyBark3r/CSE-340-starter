@@ -1,3 +1,44 @@
+
+<style>
+    #mainView {
+        padding-bottom: 25px;
+        grid-template-columns: 1fr;
+        grid-template-rows: 80px 1fr;
+    }
+    li {
+        list-style: none;
+        margin-bottom: 15px;
+        text-align: left;
+    }
+    ul#inv-display, h1 {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    div {
+        font-size: 20px;
+    }
+    img {
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 5px;
+        width: 500px;
+    }
+    p {
+        font-size: 23px;
+    }
+    .price, .color {
+        background-color: #6c6c6c8f;
+    }
+    .description, .miles {
+        background-color: #e3e3e348;
+    }
+    .price, .color, .description, .miles {
+        padding-left: 5px;
+        border-radius: 5px;
+    }
+</style>
+
+<!-- CODE -->
 <% if (title) { %>
     <h1><%= title %></h1>
 <% } 
@@ -5,4 +46,4 @@ else {
     res.redirect('/')
 } %>
 
-
+<a id="single"><%- single %></a>

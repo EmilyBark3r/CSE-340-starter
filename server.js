@@ -8,8 +8,8 @@
 const express = require("express")
 const expressLayouts = require("express-ejs-layouts")
 const env = require("dotenv").config()
-const baseController = require("./controllers/baseController")
 const app = express()
+const baseController = require("./controllers/baseController")
 const utilities = require("./utilities/")
 
 /* ***********************
@@ -23,15 +23,10 @@ app.set("layout", "./layouts/layout") // not at views root
  * Routes
  *************************/
 app.use(require("./routes/static"))
-
-// Inventory routes
-app.use("/inv", require("./routes/inventoryRoute"))
 // Index route
 app.get("/", utilities.handleErrors(baseController.buildHome))
-//what is this for?
-// app.get("/", function(req, res) {
-//   res.render("index", {title: "Home"})
-// })
+// Inventory routes
+app.use("/inv", require("./routes/inventoryRoute"))
 
 // Error Handling route
 app.use(async (req, res, next) => {

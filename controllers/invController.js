@@ -13,11 +13,43 @@ invCont.buildByClassificationId = async function (req, res, next) {
   let nav = await utilities.getNav()
   const className = data[0].classification_name
   res.render("./inventory/classification", {
-    title: className + " vehicles",
+    title: className + " Vehicles",
     nav,
     grid,
   })
 }
 
+/* ***************************
+ *  Build vehicle by inventory id
+ * ************************** */
+invCont.buildByInventoryId = async function(req, res, next) {
+  const inv_id = req.params.invId
+  const data = await invModel.getVehicleByInventoryId(inv_id)
+  let nav = await utilities.getNav()
+  let single = await utilities.buildSingleCarView(data)
+  // console.log(single)
+  const inv_make = data[0].inv_make
+  const inv_model = data[0].inv_model
+  const inv_year = data[0].inv_year
+  res.render("./inventory/detail", {
+    title: inv_year + ' ' + inv_make + ' ' + inv_model,
+    nav,
+    single
+  })
+}
+
+/* ***************************
+ *  Build Server Error Link
+ * ************************** */
+invCont.error = async function (req, res, next){
+  const string_error = "This is an error"
+  string_error = "This is an intentional error"
+  let nav = await utilities.getNav()
+  res.render("./errors/error", {
+    title: 'Server Error',
+    message,
+    nav
+  })
+}
 
 module.exports = invCont

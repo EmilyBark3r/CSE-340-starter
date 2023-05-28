@@ -81,6 +81,7 @@ VALUES   (
     101222,
     'Silver',
     2
+    -- sport
   ), (
     'Batmobile',
     'Custom',
@@ -92,6 +93,7 @@ VALUES   (
     29887,
     'Black',
     1
+    -- custom
   ), (
     'FBI',
     'Surveillance Van',
@@ -103,6 +105,7 @@ VALUES   (
     19851,
     'Green',
     1
+    -- custom
   ), (
     'Dog ',
     'Car',
@@ -114,6 +117,7 @@ VALUES   (
     71632,
     'Brown',
     1
+    -- custom
   ), (
     'Jeep',
     'Wrangler',
@@ -125,6 +129,7 @@ VALUES   (
     41205,
     'Orange',
     3
+    -- suv
   ), (
     'Lamborghini',
     'Adventador',
@@ -136,6 +141,7 @@ VALUES   (
     71003,
     'Blue',
     2
+    -- sport
   ), (
     'Aerocar International',
     'Aerocar',
@@ -147,6 +153,7 @@ VALUES   (
     18956,
     'Red',
     1
+    -- custom
   ), (
     'Monster',
     'Truck',
@@ -158,6 +165,7 @@ VALUES   (
     3998,
     'purple',
     1
+    -- custom
   ), (
     'Cadillac',
     'Escalade',
@@ -169,6 +177,7 @@ VALUES   (
     41958,
     'Black',
     4
+    -- truck
   ), (
     'GM',
     'Hummer',
@@ -180,6 +189,7 @@ VALUES   (
     56564,
     'Yellow',
     4
+    -- truck
   ), (
     'Mechanic',
     'Special',
@@ -191,6 +201,7 @@ VALUES   (
     200125,
     'Rust',
     5
+    -- sedan
   ), (
     'Ford',
     'Model T',
@@ -202,6 +213,7 @@ VALUES   (
     26357,
     'Black',
     5
+    -- sedan
   ), (
     'Mystery',
     'Machine',
@@ -213,6 +225,7 @@ VALUES   (
     128564,
     'Green',
     1
+    -- custom
   ),
   (
     'Spartan',
@@ -225,6 +238,7 @@ VALUES   (
     38522,
     'Red',
     4
+    -- truck
   ), (
     'Ford',
     'Crown Victoria',
@@ -236,4 +250,5 @@ VALUES   (
     108247,
     'White',
     5
+    -- sedan
   );
