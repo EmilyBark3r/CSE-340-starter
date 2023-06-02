@@ -2,8 +2,8 @@
 body {
   padding: 80px;
   background-image: url('/images/site/small_check.jpg');
+  /* max-width: 900px; */
 }
-
 /* content */
 #wrapper {
   box-sizing: initial;
@@ -12,6 +12,10 @@ body {
   padding: 15px;
   border-radius: 10px;
 }
+/* footer {
+  background-color: white;
+} */
+
 
 /* main */
 main {
