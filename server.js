@@ -11,12 +11,13 @@ const env = require("dotenv").config()
 const app = express()
 const baseController = require("./controllers/baseController")
 const utilities = require("./utilities/")
-//unit 4
+//unit 4 activity
 const session = require("express-session")
 const pool = require('./database/')
+const bodyParser = require("body-parser")
 
 /* ***********************
- * Middleware (unit 4)
+ * Middleware (unit 4 activity)
  * ************************/
 app.use(session({
   store: new (require('connect-pg-simple')(session))({
@@ -28,7 +29,17 @@ app.use(session({
   saveUninitialized: true,
   name: 'sessionId',
 }))
-// Express Messages Middleware
+  app.use(bodyParser.json())
+  // for parsing application/x-www-form-urlencoded
+  app.use(bodyParser.urlencoded({ extended: true })) 
+
+// Express Messages Middleware unit 4 activity
+// app.use(require('connect-flash')())
+// app.use(function(req, res, next){
+//   res.locals.messages = require('express-messages')(req, res)
+//   next()
+// })
+// Express Messages Middleware unit 4 activity
 app.use(require('connect-flash')())
 app.use(function(req, res, next){
   res.locals.messages = require('express-messages')(req, res)
@@ -50,10 +61,12 @@ app.use(require("./routes/static"))
 app.get("/", utilities.handleErrors(baseController.buildHome))
 // Inventory routes
 app.use("/inv", require("./routes/inventoryRoute"))
+// Account routes (unit 4 activity)
+app.use("/account", require("./routes/accountRoute"))
 
 // Error Handling route
 app.use(async (req, res, next) => {
-  next({status: 404, message: 'Abort the mission! I repeat, this page can not be found. Turn back now while you still can!'})
+  next({status: 404, message: 'Sadly the aliens have abducted this page and it no longer exists.'})
 })
 
 /* ***********************
@@ -63,7 +76,7 @@ app.use(async (err, req, res, next) => {
   let nav = await utilities.getNav()
   console.error(`Error at: "${req.originalUrl}": ${err.message}`)
   if(err.status == 404){ message = err.message} 
-  else {message = 'We lost this page. We searched high and low but could not find what you are looking for.'}
+  else {message = 'Aliens are coming! Run now, this route is not safe!'}
   res.render("errors/error", {
     title: err.status || 'Server Error',
     message,

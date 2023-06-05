@@ -1,0 +1,20 @@
+ 
+<form name="myAcount" on:submit|preventDefault={handleSubmit}>
+    <fieldset>
+      <div class="form">
+        <label for="account_email">Email Address:</label>
+            <input type="email" name="account_email" required />
+            <label for="account_password">Password:</label>
+            <input type="password" name="account_password" id="password" required 
+            pattern="^(?=.*/d)(?=.*[a-z])(?=.*[&a-zA-Z0-9])(?!.*/s).{12,}$"/>
+            <div><i>Passwords must be a minimum of 12 characters and include 1 capital
+                letter, 1 number and 1 special character.</i></div>
+            <div id="pswBtn">Show Password</div>
+        <button type="submit">Login</button>
+      </div>
+      <div>
+        <label for="register">No account? <a href="/register">Sign-up</a></label>
+      </div>
+      </fieldset>
+  </form>
+ 
