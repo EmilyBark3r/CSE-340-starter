@@ -14,6 +14,7 @@ const utilities = require("./utilities/")
 //unit 4 activity
 const session = require("express-session")
 const pool = require('./database/')
+//unit 4 activity process registration
 const bodyParser = require("body-parser")
 
 /* ***********************
@@ -29,8 +30,8 @@ app.use(session({
   saveUninitialized: true,
   name: 'sessionId',
 }))
+//unit 4 activity process registration
   app.use(bodyParser.json())
-  // for parsing application/x-www-form-urlencoded
   app.use(bodyParser.urlencoded({ extended: true })) 
 
 // Express Messages Middleware unit 4 activity

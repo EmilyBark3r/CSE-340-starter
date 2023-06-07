@@ -1,4 +1,15 @@
 
+<!-- CODE -->
+<% if (title) { %>
+    <h1><%= title %></h1>
+<% } 
+else {
+    res.redirect('/')
+} %>
+
+<a id="single"><%- single %></a>
+
+
 <style>
     #mainView {
         padding-bottom: 25px;
@@ -37,13 +48,3 @@
         border-radius: 5px;
     }
 </style>
-
-<!-- CODE -->
-<% if (title) { %>
-    <h1><%= title %></h1>
-<% } 
-else {
-    res.redirect('/')
-} %>
-
-<a id="single"><%- single %></a>

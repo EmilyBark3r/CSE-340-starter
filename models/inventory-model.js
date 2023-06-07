@@ -35,4 +35,9 @@ async function getVehicleByInventoryId(inv_id) {
     }
 }
 
+/* ***************************
+ *  Add new classification
+ * ************************** */
+
+
 module.exports = {getClassifications, getInventoryByClassificationId, getVehicleByInventoryId};
