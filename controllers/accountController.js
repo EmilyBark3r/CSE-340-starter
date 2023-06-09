@@ -12,7 +12,7 @@ const bcrypt = require("bcryptjs")
 * *************************************** */
 async function buildLogin(req, res, next) {
   let nav = await utilities.getNav()
-  res.render("account/login", {
+  res.render("/login", {
     title: "Login",
     nav,
     errors: null,
@@ -24,7 +24,7 @@ async function buildLogin(req, res, next) {
 * *************************************** */
 async function buildRegister(req, res, next) {
   let nav = await utilities.getNav()
-  res.render("account/register", {
+  res.render("/register", {
     title: "Register",
     nav,
     errors: null,
@@ -49,7 +49,7 @@ try {
   hashedPassword = await bcrypt.hashSync(account_password, 10)
 } catch (error) {
   req.flash("notice", 'Sorry, there was an error processing the registration.')
-  res.status(500).render("./account/register", {
+  res.status(500).render("/register", {
     title: "Registration",
     nav,
     errors: null,
@@ -68,18 +68,20 @@ const regResult = await accountModel.accountRegister(
       "notice",
       `Congratulations, you\'re registered ${account_firstname}. Please log in.`
     )
-    res.status(201).render("./account/login", {
+    res.status(201).render("/login", {
       title: "Login",
       nav,
     })
   } else {
     req.flash("notice", "Sorry, the registration failed.")
-    res.status(501).render("./account/register", {
+    res.status(501).render("/register", {
       title: "Registration",
       nav,
       errors: null,
     })
   }
 }
+
+
 
 module.exports = { buildLogin, buildRegister, registerAccount }

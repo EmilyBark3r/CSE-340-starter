@@ -64,6 +64,11 @@ app.get("/", utilities.handleErrors(baseController.buildHome))
 app.use("/inv", require("./routes/inventoryRoute"))
 // Account routes (unit 4 activity)
 app.use("/account", require("./routes/accountRoute"))
+// login and register routes
+// app.use("/register", require ("./routes/accountRoute"))
+// app.use("/login", require("./routes/accountRoute"))
+// managment route add-classification
+app.use("/managment", require("./views/inventory/add-classification"))
 
 // Error Handling route
 app.use(async (req, res, next) => {

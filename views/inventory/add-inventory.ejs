@@ -1,10 +1,48 @@
-<!--    classification_id   (select list)
-        inv_make    
-        inv_model
-        inv_year
-        inv_description
-        inv_image
-        inv_thumbnail
-        inv_price
-        inv_miles
-        inv_color -->
+
+<form id="newInventory" action="/management" method="post">
+        <p>All feilds are required.</p>
+        <fieldset>
+                <div class="form">
+                <label for="classification_id">Classification:</label>
+                        <select id="classification_id" name="classification_id" required 
+                                placeholder="Choose a Classification">
+                            <!-- <option value="">Select Classification</option> -->
+                            <option value="1">Custom</option>
+                            <option value="2">Sedan</option>
+                            <option value="3">Sport</option>
+                            <option value="4">SUV</option>
+                            <option value="5">Truck</option>
+                        </select>
+                <label for="inv_make">Make:</label>
+                        <input type="text" id="inv_make" name="inv_make" required 
+                                placeholder="Min of 3 characters" pattern="^.{3,}$">
+                <label for="inv_model">Model:</label>
+                        <input type="text" id="inv_model" name="inv_model" required 
+                                placeholder="Min of 3 characters" pattern="^.{3,}$">
+                <label for="inv_description">Description:</label>
+                        <textarea id="inv_description" name="inv_description" required></textarea>
+                <label for="inv_image">Image:</label>
+                        <input type="file" id="inv_image" name="inv_image" required
+                                placeholder="/images/vehicles/no-image.png">
+                <label for="inv_thumbnail">Thumbnail:</label>
+                        <input type="file" id="inv_thumbnail" name="inv_thumbnail" required
+                                placeholder="/images/vehicles/no-image.png">
+                <label for="inv_price">Price:</label>
+                        <input type="number" id="inv_price" name="inv_price" required 
+                                placeholder="decimal or integer" pattern="^\d+(\.\d+)?$">
+                <label for="inv_year">Year:</label>
+                        <input type="number" id="inv_year" name="inv_year" required 
+                                placeholder="4-digit year" pattern="^\d{4}$">
+                <label for="inv_miles">Miles:</label>
+                        <input type="number" id="inv_miles" name="inv_miles" required 
+                                placeholder="digits only" pattern="^[0-9]+$">
+                <label for="inv_color">Color:</label>
+                        <input type="text" id="inv_color" name="inv_color" required>
+                </div>
+                <button type="submit">Add Classification</button>
+        </fieldset>
+</form>
+
+<style>
+
+</style>

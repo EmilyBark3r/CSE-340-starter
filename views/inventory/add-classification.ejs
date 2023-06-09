@@ -5,12 +5,13 @@
       <div class="form">
           <label for="classification_name">Classification Name</label>
           <p>NAME MUST BE ALPHABETICAL CHARACTERS ONLY</p>
-              <input type="name" name="classification_name" required />
+          <!-- The form must contain a direction that the new classification name cannot contain a space or special character of any kind. -->
+          <input type="name" name="classification_name" required 
+            pattern="^[a-zA-Z]+$"/>
         </div>
         <button id="button" type="submit">Add Classification</button>
       </fieldset>
     </form>
-<!-- The form must contain a direction that the new classification name cannot contain a space or special character of any kind. -->
 
 <!-- The form must contain client-side validation. -->
 
