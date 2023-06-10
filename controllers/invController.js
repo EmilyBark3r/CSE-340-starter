@@ -51,5 +51,30 @@ invCont.error = async function (req, res, next){
     nav
   })
 }
+//mangement view
+invCont.buildMangementView = async function (req, res, next){
+let nav = await utilities.getNav()
+res.render("./inventory/management", {
+  title: 'Management View',
+  nav
+})}
+
+// Add-classification
+invCont.buildClassificationView = async function (req, res, next){
+  let nav = await utilities.getNav()
+  res.render("./inventory/add-classification", {
+    title: 'Add Classification',
+    nav
+  })}
+
+// Add-inventory
+invCont.buildInventoryView = async function (req, res, next){
+  let nav = await utilities.getNav()
+  res.render("./inventory/add-inventory", {
+    title: 'Add Inventory',
+    nav
+  })}
+
+
 
 module.exports = invCont

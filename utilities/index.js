@@ -101,6 +101,8 @@ Util.buildSingleCarView = async function(data){
   return single
 }
 
+
+
 /* ****************************************
  * Middleware For Handling Errors
  * Wrap other function in this for 

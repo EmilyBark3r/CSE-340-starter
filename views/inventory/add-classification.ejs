@@ -1,5 +1,5 @@
 <!-- Task 2 Unit 4 -->
-<form id="newClassification" action="/management" method="post">
+<form id="newClassification" action="/" method="post">
     <p>Feild is required.</p>
     <fieldset>
       <div class="form">
@@ -13,6 +13,30 @@
       </fieldset>
     </form>
 
-<!-- The form must contain client-side validation. -->
+<style>
+  main{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 
-<!-- The view must be delivered via a route and using the MVC architecture as with all other views. -->
+  }
+  input {
+  width: 100%;
+  }
+  #button {
+    background-color: rgb(37, 150, 190);
+    border: none;
+    color: white;
+    font-size: 15px;
+    padding: 10px 20px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+  form {
+    grid-column: 2/2;
+  }
+  p {
+    grid-row: 2/2;
+    grid-column: 2/2;
+  }
+</style> 

@@ -3,12 +3,23 @@
     <h1><%= title %></h1>
     <% } else { res.redirect('/')} %>
 
-    <h1>Management View</h1>
-
     <div><%- messages() %></div>
 
     <!-- add new classification view -->
-<a href="./add-classification.ejs">Add new Classification</a>
+<a id="classification" href="/inv/add-classification">Add new Classification</a>
 
     <!-- add new inventory view -->
-<a href="./add-inventory.ejs">Add new Inventory</a>
+<a id="inventory" href="/inv/add-inventory">Add new Inventory</a>
+
+
+<style>
+    main {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        margin: 50px;
+    }
+    a {
+        padding-bottom: 15px;
+    }
+</style>
