@@ -5,6 +5,12 @@ const invController = require("../controllers/invController")
 const utilities = require("../utilities")
 
 
+// Route to build inventory by classification view
+router.get("/type/:classificationId", invController.buildByClassificationId);
+// Route to build inventory by inventory view
+router.get("/detail/:invId", invController.buildByInventoryId);
+
+
 // Route to build management view
 router.get("/", utilities.handleErrors(invController.buildMangementView))
 // Route to build error view 
@@ -33,14 +39,10 @@ router.post(
 router.post(
   "/add-inventory",
   (req, res) => {
+    // should not be
   regValidate.registationRules(),
   regValidate.checkRegData,
   utilities.handleErrors(invController.buildInventoryView)
   })
-
-// Route to build inventory by classification view
-router.get("/type/:classificationId", invController.buildByClassificationId);
-// Route to build inventory by inventory view
-router.get("/detail/:invId", invController.buildByInventoryId);
 
 module.exports = router;

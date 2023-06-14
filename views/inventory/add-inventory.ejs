@@ -4,7 +4,7 @@
       
 <%- messages() %>
 
-<form id="newInventory" action="/management" method="post">
+<form id="newInventory" action="/inv/" method="post">
         <p>All feilds are required.</p>
         <fieldset>
                 <div class="form">
@@ -36,7 +36,7 @@
                                 placeholder="decimal or integer" pattern="^\d+(\.\d+)?$">
                 <label for="inv_year">Year:</label>
                         <input type="text" id="inv_year" name="inv_year" required 
-                                placeholder="4-digit year" pattern="^\d{4,0}$">
+                                placeholder="4-digit year" pattern="/^\d{4}$/">
                 <label for="inv_miles">Miles:</label>
                         <input type="text" id="inv_miles" name="inv_miles" required 
                                 placeholder="digits only" pattern="^[0-9]+$">

@@ -75,6 +75,8 @@ invCont.buildInventoryView = async function (req, res, next){
     nav
   })}
 
-
+// add a new vehicle
+// process new classification
+// process adding vehicle
 
 module.exports = invCont

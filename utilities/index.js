@@ -1,6 +1,10 @@
 const invModel = require("../models/inventory-model")
 const Util = {}
 
+// Unit 5 Login Activity
+const jwt = require("jsonwebtoken")
+require("dotenv").config()
+
 /* ************************
  * Constructs the nav HTML unordered list
  ************************** */
@@ -101,13 +105,47 @@ Util.buildSingleCarView = async function(data){
   return single
 }
 
-
-
+// constuct classification list
+Util.getClassificationOptions = async function (optionSelected) {
+  let data = await invModel.getClassifications()
+  let options = "<option value=''>Choose a classification</option>"
+  data.rows.forEach((row) => {
+    options += `
+    <option
+    value="${row.classifcation_id}"
+    ${row.classifcation_id} === Number(optionSelected) more code not finished`
+  })
+  return options
+}
 /* ****************************************
  * Middleware For Handling Errors
  * Wrap other function in this for 
  * General Error Handling
  **************************************** */
 Util.handleErrors = fn => (req, res, next) => Promise.resolve(fn(req, res, next)).catch(next)
+
+/* ****************************************
+* Middleware to check token validity
+* Unit 5 Login Activity
+**************************************** */
+Util.checkJWTToken = (req, res, next) => {
+  if (req.cookies.jwt) {
+   jwt.verify(
+    req.cookies.jwt,
+    process.env.ACCESS_TOKEN_SECRET,
+    function (err, accountData) {
+     if (err) {
+      req.flash("Please log in")
+      res.clearCookie("jwt")
+      return res.redirect("/account/login")
+     }
+     res.locals.accountData = accountData
+     res.locals.loggedin = 1
+     next()
+    })
+  } else {
+   next()
+  }
+ }
 
 module.exports = Util

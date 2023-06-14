@@ -16,6 +16,8 @@ const session = require("express-session")
 const pool = require('./database/')
 //unit 4 activity process registration
 const bodyParser = require("body-parser")
+// unit 5 Activity Login
+const cookieParser = require("cookie-parser")
 
 /* ***********************
  * Middleware (unit 4 activity)
@@ -46,6 +48,10 @@ app.use(function(req, res, next){
   res.locals.messages = require('express-messages')(req, res)
   next()
 })
+// unit 5 Activity Login
+app.use(cookieParser())
+app.use(utilities.checkJWTToken)
+
 
 /* ***********************
  * View Engines and Templates
