@@ -18,7 +18,7 @@ require("dotenv").config()
 * *************************************** */
 async function buildLogin(req, res, next) {
   let nav = await utilities.getNav()
-  res.render("./account/login", {
+  res.render("/account/login", {
     title: "Login",
     nav,
     errors: null,
@@ -30,7 +30,7 @@ async function buildLogin(req, res, next) {
 * *************************************** */
 async function buildRegister(req, res, next) {
   let nav = await utilities.getNav()
-  res.render("account/register", {
+  res.render("/account/register", {
     title: "Register",
     nav,
     errors: null,
@@ -43,7 +43,7 @@ async function buildRegister(req, res, next) {
 * *************************************** */
 async function buildAccountManagement(req, res, next) {
   let nav = await utilities.getNav()
-  res.render("./account/account-management", {
+  res.render("/account/account-management", {
     title: "Login Processed Successfully",
     nav,
     errors: null,
@@ -122,7 +122,8 @@ async function accountLogin(req, res) {
   try {
    if (await bcrypt.compare(account_password, accountData.account_password)) {
    delete accountData.account_password
-   const accessToken = jwt.sign(accountData, process.env.ACCESS_TOKEN_SECRET, { expiresIn: 3600 * 1000 })
+   const accessToken = jwt.sign(accountData, process.env.
+   ACCESS_TOKEN_SECRET, { expiresIn: 3600 * 1000 })
    res.cookie("jwt", accessToken, { httpOnly: true, maxAge: 3600 * 1000 })
    return res.redirect("/account/")
    }

@@ -51,4 +51,5 @@ async function addNewClassification() {
     }
 }
 
+
 module.exports = {getClassifications, getInventoryByClassificationId, getVehicleByInventoryId, addNewClassification};
