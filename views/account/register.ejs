@@ -11,7 +11,7 @@
   <%  }) %>
    </ul>
   <% } %>
-    
+  <fieldset>
     <div id="registerContainer">
         <p>All feilds are required.</p>
         <form id="registForm" action="./account/register" method="post">
@@ -22,9 +22,37 @@
                 <label for="account_email">Email Address:</label>
             <input type="email" name="account_email" required value="<%= locals.account_email %>" />
                 <label for="accountPassword">Password:</label> 
-            <span>Passwords must be at least 12 characters and contain at least 1 number, 1 capital letter and 1 special character</span> 
                 <input type="password" name="account_password" id="accountPassword" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$">
-            <div id="pswBtn">Show Password</div>
-                <button type="submit">Register</button>    
+                <span>Passwords must be at least 12 characters and contain at least 1 number, 1 capital letter and 1 special character</span> 
+            <br>
+            <button id="button" type="submit">Register</button>
         </form>
     </div> 
+
+    <style>
+        main{
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+      
+        }
+        input {
+        width: 100%;
+        }
+        #button {
+          background-color: rgb(37, 150, 190);
+          border: none;
+          color: white;
+          font-size: 15px;
+          padding: 10px 20px;
+          text-decoration: none;
+          margin: 4px 2px;
+          cursor: pointer;
+        }
+        form {
+          grid-column: 2/2;
+        }
+        p {
+          grid-row: 2/2;
+          grid-column: 2/2;
+        }
+      </style> 

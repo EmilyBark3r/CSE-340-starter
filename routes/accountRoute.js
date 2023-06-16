@@ -38,10 +38,10 @@ router.post(
 )
 
 // Process the account-management
-router.post(
-  "/account-management",
-  regValidate.checkRegData,
-  utilities.handleErrors(accountController.buildAccountManagement)
-)
+// router.post(
+//   "/account-management",
+//   regValidate.checkRegData,
+//   utilities.handleErrors(accountController.buildAccountManagement)
+// )
 
 module.exports = router
