@@ -15,10 +15,11 @@ const regValidate = require('../utilities/account-validation')
 * *************************************** */
 router.get("/login", utilities.handleErrors(accountController.buildLogin))
 // register get
-router.get('/register', utilities.handleErrors(accountController.buildRegister))
+router.get("/register", utilities.handleErrors(accountController.buildRegister))
 // account-mangaement get
-router.get('/account-management', utilities.handleErrors(accountController.buildAccountManagement))
-
+router.get("/account-management", utilities.handleErrors(accountController.buildAccountManagement))
+// account-update get
+router.get("/account-update", utilities.handleErrors(accountController.accountUpdate))
 // Process the registration data
 // router.post(
 //     "/register",

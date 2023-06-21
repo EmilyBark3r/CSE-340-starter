@@ -1,0 +1,58 @@
+<% if (title) { %>
+    <h1><%= title %></h1>
+    <% } else { res.redirect('/')} %>
+  
+  <%- messages() %>
+  
+<!-- Account Update -->
+<!-- <fieldset> -->
+    <form id="accountUpdate" action="./account-update" method="post">
+        <label for="account_firstname">First Name:</label>
+            <input type="text" name="account_firstname" id="account_firstname" required value="<%= locals.account_firstname %>">
+        <label for="account_lastname">Last Name:</label>
+            <input type="text" name="account_lastname" id="account_lastname" required value="<%= locals.account_lastname %>" />
+        <label for="account_email">Email Address:</label>
+            <input type="email" name="account_email" id="account_email" required value="<%= locals.account_email %>" />
+        <button id="buttonAccount" type="submit">Update Account</button>
+    </form>
+<!-- </fieldset> -->
+<br>
+<!-- Change Password -->
+<!-- <fieldset> -->
+    <form id="changePassword">
+        <label for="accountPassword">Update  Password:</label> 
+            <input type="password" name="account_password" id="accountPassword" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$">
+        <button id="buttonPassword" type="submit">Update Password</button>
+    </form>
+<!-- </fieldset> -->
+
+<style>
+    main{
+      display: flex;
+      flex-direction: column;
+      margin-left: 350px;
+      margin-right: 350px;
+      /* grid-template-columns: 1fr 1fr 1fr; */
+  
+    }
+    input {
+    width: 100%;
+    }
+    #buttonAccount, #buttonPassword {
+      background-color: rgb(37, 150, 190);
+      border: none;
+      color: black;
+      font-size: 15px;
+      padding: 10px 20px;
+      text-decoration: none;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+    /* form {
+      grid-column: 2/2;
+    }
+    p {
+      grid-row: 2/2;
+      grid-column: 2/2;
+    } */
+  </style> 

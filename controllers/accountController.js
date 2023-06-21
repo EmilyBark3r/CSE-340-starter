@@ -76,7 +76,7 @@ try {
 }
 
 // password hashing activity
-const regResult = await accountModel.accountRegister(
+const regResult = await accountModel.registerAccount(
   account_firstname,
   account_lastname,
   account_email,
@@ -132,4 +132,38 @@ async function accountLogin(req, res) {
   }
  }
 
-module.exports = { buildLogin, buildRegister, buildAccountManagement, registerAccount, accountLogin }
+/* ****************************************
+ *  Process Account Update
+ *  Unit 5 Task 4
+ * ************************************ */
+async function accountUpdate(req, res) {
+  let nav = await utilities.getNav()
+  const { account_firstname, account_lastname, account_email, account_password } = req.body
+  res.status(500).render("./account/account-update", {
+    title: "Update Account",
+    nav,
+    errors: null,
+  })
+  const regResult = await accountModel.registerAccount(
+    account_firstname,
+    account_lastname,
+    account_email,
+    account_password
+  )
+
+  if (regResult) {
+    req.flash(
+      "notice",
+      // `Congratulations, you\'ve update your account ${account_firstname}.`
+    )
+  } else {
+    req.flash("notice", "Sorry, the update failed.")
+    res.status(501).render("./account/account-update", {
+      title: "Update Account",
+      nav,
+      errors: null,
+    })
+  }
+}
+
+module.exports = { buildLogin, buildRegister, buildAccountManagement, registerAccount, accountLogin, accountUpdate }
