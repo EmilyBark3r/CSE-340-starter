@@ -108,15 +108,14 @@ Util.buildSingleCarView = async function(data){
 // constuct classification list
 Util.getClassificationOptions = async function (optionSelected) {
   let data = await invModel.getClassifications()
-  let options = "<option value=''>Choose a classification</option>"
+  let classificationSelect = "<option value=''>Choose a classification</option>"
   data.rows.forEach((row) => {
-    options += `
-    <option
-    value="${row.classifcation_id}"
-    ${row.classifcation_id} === Number(optionSelected) more code not finished`
+    classificationSelect += `<option value="${row.classification_id}">${row.classification_name}</option>`
   })
-  return options
+// console.log(classificationSelect)
+  return classificationSelect
 }
+
 /* ****************************************
  * Middleware For Handling Errors
  * Wrap other function in this for 

@@ -9,7 +9,8 @@ const utilities = require("../utilities")
 router.get("/type/:classificationId", invController.buildByClassificationId);
 // Route to build inventory by inventory view
 router.get("/detail/:invId", invController.buildByInventoryId);
-
+// Route to edit-inventory
+router.get("/edit/:inv_id", invController.editInventoryView);
 
 // Route to build management view
 router.get("/", utilities.handleErrors(invController.buildMangementView))
@@ -20,44 +21,32 @@ router.get("/add-classification", utilities.handleErrors(invController.buildClas
 // Route to build inventory view
 router.get("/add-inventory", utilities.handleErrors(invController.buildInventoryView))
 
-// management view post
-router.post(
-    "/inv",
-    (req, res) => {
-      regValidate.registationRules(),
-      regValidate.checkRegData
-    })
 //add classification
 router.post(
   "/add-classification",
-  (req, res) => {
-  regValidate.registationRules(),
-  regValidate.checkRegData,
-  utilities.handleErrors(invController.buildClassificationView)
-  })
+  // (req, res) => {
+  // regValidate.registationRules(),
+  // regValidate.checkRegData,
+  utilities.handleErrors(invController.buildNewClassification)
+  // }
+  )
 //add inventory
 router.post(
   "/add-inventory",
-  (req, res) => {
-    // should not be
-  regValidate.registationRules(),
-  regValidate.checkRegData,
+//   (req, res) => {
+//   regValidate.registationRules(),
+//   regValidate.checkRegData,
   utilities.handleErrors(invController.buildInventoryView)
-  })
+  // }
+)
 
 // update inventory post
-router.post("/update/", invController.updateInventory)
+// router.post("/update/", invController.updateInventory)
 
 /* *************************
 * Get inventory for AJAZ Route
 * Unit 5 activity
 **************************/
-router.get(
-  "/inv/getInventory/:classification_id",
-  (req, res) => {
-  regValidate.newInventoryRules(),
-  regValidate.checkUpdateData,
-  utilities.handleErrors(invController.getInventoryJSON)
-  })
+router.get("/getInventory/:classification_id", utilities.handleErrors(invController.getInventoryJSON))
 
 module.exports = router;

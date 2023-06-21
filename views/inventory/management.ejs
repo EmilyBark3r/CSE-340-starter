@@ -6,13 +6,16 @@
     <div><%- messages() %></div>
 
     <!-- add new classification view -->
-<a id="classification" href="/inv/add-classification">Add new Classification</a>
+<a id="classification" href="/inv/add-classification/">Add new Classification</a>
     <!-- add new inventory view -->
-<a id="inventory" href="/inv/add-inventory">Add new Inventory</a>
+<a id="inventory" href="/inv/add-inventory/">Add new Inventory</a>
 
 <h2>Manage Inventory</h2>
 <p>Choose a classification to see those inventory items.</p>
-<%- classificationSelect %>
+<select id="classificationList" required>
+    
+    <%- classificationSelect %>
+</select>
 
 <table id="inventoryDisplay"></table>
 
@@ -21,15 +24,14 @@
 <script src="../../js/inventory.js"></script>
 
 
-
 <style>
-    main {
+    /* main {
         display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
         margin: 50px;
     }
     a {
         padding-bottom: 15px;
-    }
+    } */
 </style>

@@ -54,18 +54,18 @@ invCont.error = async function (req, res, next){
 //mangement view
 invCont.buildMangementView = async function (req, res, next){
 let nav = await utilities.getNav()
-const classificationSelect = await utilities.buildClassificationView()
-res.render("/inventory/management", {
+const classificationSelect = await utilities.getClassificationOptions()
+res.render("./inventory/management", {
   title: 'Management View',
   nav,
-  errors: null,
   classificationSelect,
+  errors: null,
 })}
 
 // Add-classification
 invCont.buildClassificationView = async function (req, res, next){
   let nav = await utilities.getNav()
-  res.render("/inventory/add-classification", {
+  res.render("./inventory/add-classification", {
     title: 'Add Classification',
     nav
   })}
@@ -73,10 +73,13 @@ invCont.buildClassificationView = async function (req, res, next){
 // Add-inventory
 invCont.buildInventoryView = async function (req, res, next){
   let nav = await utilities.getNav()
-  res.render("/inventory/add-inventory", {
+  let classificationSelect = await utilities.getClassificationOptions()
+  res.render("./inventory/add-inventory", {
     title: 'Add Inventory',
-    nav
+    nav,
+    classificationSelect
   })}
+
 
 // add a new vehicle (?)
 // invCont.addNewClassification = async function (req, res, next) {
@@ -147,13 +150,33 @@ invCont.updateInventory = async function (req, res, next) {
   }
 }
 
-// process new classification (?)
-invCont.addNewClassification = async function (req, res, next) {
-let nav = await utilities.getNav()
-res.render("/", {
-  title: 'Add new Classification',
-  nav
-})}
+/* ****************************************
+*  Process add new classification
+* *************************************** */
+invCont.buildNewClassification = async function (req, res) {
+  let nav = await utilities.getNav()
+  const { classification_name} = req.body
+
+// // password hashing activity
+const regResult = await invModel.addNewClassification(classification_name)
+  if (regResult) {
+    req.flash(
+      "notice",
+      `${classification_name} has been added.`
+    )
+    res.status(201).render("inventory/management", {
+      title: "Management View",
+      nav,
+    })
+  } else {
+    req.flash("notice", "Sorry, the classification failed.")
+    res.status(501).render("inventory/add-classification/", {
+      title: "Add Classification",
+      nav,
+      errors: null,
+    })
+  }
+}
 
 // process adding vehicle (?)
 
@@ -179,10 +202,10 @@ invCont.getInventoryJSON = async (req, res, next) => {
 invCont.editInventoryView = async function (req, res, next) {
   const inv_id = parseInt(req.params.inv_id)
   let nav = await utilities.getNav()
-  const itemData = await invModel.getInventoryById(inv_id)
-  const classificationSelect = await utilities.buildClassificationList(itemData.classification_id)
+  const itemData = await invModel.getVehicleByInventoryId(inv_id)
+  const classificationSelect = await utilities.getClassificationOptions(itemData.classification_id)
   const itemName = `${itemData.inv_make} ${itemData.inv_model}`
-  res.render("./inventory/edit-inventory", {
+  res.render("./inventory/edit-inventory/", {
     title: "Edit " + itemName,
     nav,
     classificationSelect: classificationSelect,

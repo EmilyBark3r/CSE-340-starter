@@ -18,7 +18,7 @@ require("dotenv").config()
 * *************************************** */
 async function buildLogin(req, res, next) {
   let nav = await utilities.getNav()
-  res.render("/account/login", {
+  res.render("./account/login", {
     title: "Login",
     nav,
     errors: null,
@@ -30,7 +30,7 @@ async function buildLogin(req, res, next) {
 * *************************************** */
 async function buildRegister(req, res, next) {
   let nav = await utilities.getNav()
-  res.render("/account/register", {
+  res.render("./account/register", {
     title: "Register",
     nav,
     errors: null,
@@ -111,7 +111,7 @@ async function accountLogin(req, res) {
   const accountData = await accountModel.getAccountByEmail(account_email)
   if (!accountData) {
    req.flash("notice", "Please check your credentials and try again.")
-   res.status(400).render("account/login", {
+   res.status(400).render("/account/login", {
     title: "Login",
     nav,
     errors: null,

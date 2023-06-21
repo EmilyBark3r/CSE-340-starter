@@ -1,17 +1,20 @@
+<!-- <script>
+import classification from ("utilities\index.js")
+</script> -->
+
 <% if (title) { %>
         <h1><%= title %></h1>
 <% } else { res.redirect('/')} %>
       
 <%- messages() %>
 
-<form id="newInventory" action="/inv/" method="post">
+<form id="newInventory" action="/inv/add-inventory/" method="post">
         <p>All feilds are required.</p>
         <fieldset>
                 <div class="form">
                 <label for="classification_id">Classification:</label>
-                        <select id="classification_id" name="classification_id" required 
-                                placeholder="Choose a Classification">
-                            <option value="">Select Classification</option>
+                        <select id="classification_id" name="classification_name" required>
+                                <%- classificationSelect %>
                         </select>
                         <br>
                 <label for="inv_make">Make:</label>
@@ -27,16 +30,16 @@
                         <br>
                 <label for="inv_image">Image:</label>
                         <input type="text" id="inv_image" name="inv_image" required
-                                placeholder="/images/vehicles/no-image.png">
+                                value="/images/vehicles/no-image.png">
                 <label for="inv_thumbnail">Thumbnail:</label>
                         <input type="text" id="inv_thumbnail" name="inv_thumbnail" required
-                                placeholder="/images/vehicles/no-image.png">
+                                value="/images/vehicles/no-image.png">
                 <label for="inv_price">Price:</label>
                         <input type="text" id="inv_price" name="inv_price" required 
                                 placeholder="decimal or integer" pattern="^\d+(\.\d+)?$">
                 <label for="inv_year">Year:</label>
                         <input type="text" id="inv_year" name="inv_year" required 
-                                placeholder="4-digit year" pattern="/^\d{4}$/">
+                                placeholder="4-digit year" pattern="\d{4}">
                 <label for="inv_miles">Miles:</label>
                         <input type="text" id="inv_miles" name="inv_miles" required 
                                 placeholder="digits only" pattern="^[0-9]+$">
@@ -47,25 +50,6 @@
         </fieldset>
 </form>
 
-<script>
-// Get the select element
-const classificationSelect = document.getElementById('classification_id');
-
-// Function to add a new option to the select element
-function addOptionToSelect(value, text) {
-  const option = document.createElement('option');
-  option.value = value;
-  option.textContent = text;
-  classificationSelect.appendChild(option);
-}
-
-addOptionToSelect(1, 'Custom');
-addOptionToSelect(2, 'Sedan');
-addOptionToSelect(3, 'Sport');
-addOptionToSelect(4, 'SUV');
-addOptionToSelect(5, 'Truck');
-addOptionToSelect(6, 'Beater');
-</script>
 
 <style>
         main{

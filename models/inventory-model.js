@@ -38,14 +38,14 @@ async function getVehicleByInventoryId(inv_id) {
 /* ***************************
  *  Add new classification
  * ************************** */
-async function addNewClassification() {
+async function addNewClassification(classification_name) {
   try {
     const data = await pool.query(
-       'INSERT INTO public.classification (classification_name) VALUES $1',
-       [classification_id]
+       'INSERT INTO public.classification (classification_name) VALUES ($1)',
+       [classification_name]
     )
     console.log("addNewClassification has been ran")
-    return data.rows
+    return data
     } catch (error) {
       console.error("addNewClassification error " + error)
     }
