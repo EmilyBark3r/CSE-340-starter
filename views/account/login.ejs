@@ -12,7 +12,7 @@
  </ul>
 <% } %>
 
-<form id="loginForm" action="/account/account-management" method="post">
+<form id="loginForm" action="./account-management" method="post">
   <fieldset>
     <div class="form">
         <p>All feilds are required.</p>
@@ -22,12 +22,24 @@
             <input type="password" name="account_password" id="accountPassword" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$">
             <span>Passwords must be at least 12 characters and contain at least 1 number, 1 capital letter and 1 special character</span> 
         <br>
-            <button id="button" type="submit">Login</button>
+            <button onclick="account(this)" id="button" type="submit">Login</button>
       </div>
     </fieldset>
   </form>
-  <p id="register">No account? <a href="/account/register">Sign-up</a></p>
+  <p id="register">No account? <a href="./register">Sign-up</a></p>
 
+<script>
+    let account = button => {
+    let element = document.getElementById("loggedOut");
+    let hidden = element.getAttribute("hidden");
+    
+    if (hidden) {
+       element.removeAttribute("hidden");
+    } else {
+       element.setAttribute("hidden", "hidden");
+    }
+  }
+</script>
 <style>
   main{
     display: grid;
@@ -54,4 +66,7 @@
     grid-row: 2/2;
     grid-column: 2/2;
   }
+  span {
+      font-weight: bold;
+    }
 </style> 

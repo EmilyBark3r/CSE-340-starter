@@ -43,8 +43,8 @@ async function buildRegister(req, res, next) {
 * *************************************** */
 async function buildAccountManagement(req, res, next) {
   let nav = await utilities.getNav()
-  res.render("/account/account-management", {
-    title: "Login Processed Successfully",
+  res.render("./account/account-management", {
+    title: "Manage Account",
     nav,
     errors: null,
   })
@@ -154,7 +154,7 @@ async function accountUpdate(req, res) {
   if (regResult) {
     req.flash(
       "notice",
-      // `Congratulations, you\'ve update your account ${account_firstname}.`
+      `Congratulations, you\'ve update your account ${account_firstname}.`
     )
   } else {
     req.flash("notice", "Sorry, the update failed.")

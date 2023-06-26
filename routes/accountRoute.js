@@ -20,29 +20,24 @@ router.get("/register", utilities.handleErrors(accountController.buildRegister))
 router.get("/account-management", utilities.handleErrors(accountController.buildAccountManagement))
 // account-update get
 router.get("/account-update", utilities.handleErrors(accountController.accountUpdate))
+
 // Process the registration data
-// router.post(
-//     "/register",
-//     regValidate.registationRules(),
-//     regValidate.checkRegData,
-//     regValidate.registerAccount,
-//     utilities.handleErrors(accountController.buildRegister)
-//   )
+router.post(
+    "/register",
+    regValidate.registationRules(),
+    regValidate.checkRegData,
+    utilities.handleErrors(accountController.buildRegister)
+  )
 
 // Process the login attempt
 router.post(
   "/login",
-    // regValidate.checkLogin(),
-    // regValidate.checkRegData,
-    // regValidate.accountLogin,
+    regValidate.checkLogin(),
+    regValidate.checkRegData,
     utilities.handleErrors(accountController.accountLogin)
 )
 
 // Process the account-management
-// router.post(
-//   "/account-management",
-//   regValidate.checkRegData,
-//   utilities.handleErrors(accountController.buildAccountManagement)
-// )
+router.post("./account-management",utilities.handleErrors(accountController.buildAccountManagement))
 
 module.exports = router

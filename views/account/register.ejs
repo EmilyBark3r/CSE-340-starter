@@ -14,7 +14,7 @@
   <fieldset>
     <div id="registerContainer">
         <p>All feilds are required.</p>
-        <form id="registForm" action="./account/register" method="post">
+        <form id="registForm" action="./login" method="post">
                 <label for="account_firstname">First Name:</label>
             <input type="text" name="account_firstname" id="accountFirstname" required value="<%= locals.account_firstname %>">
                 <label for="account_lastname">Last Name:</label>
@@ -54,5 +54,8 @@
         p {
           grid-row: 2/2;
           grid-column: 2/2;
+        }
+        span {
+          font-weight: bold;
         }
       </style> 

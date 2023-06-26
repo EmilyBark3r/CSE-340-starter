@@ -4,52 +4,47 @@
     </span>
     <div id="tools">
         <section id="loggedIn">
-            <a title="Click to log in" href="../account/account-management">Welcome Basic</a>
+            <body onload="checkDisplay()">
+            <a title="Click to go to account-management" href="./account\account-management">Welcome <%# account_firstname %> |</a>
                 <!-- when Welcome Basic is clicked, it will take them to account managment view -->
         
-            <a title="Click to log in" href="/">Logout</a>
+            <a onClick="logOut()" title="Click to log out" href="http://localhost:5500/" >Logout |</a>
+            <!-- <button onclick="toggle(this)">Hide Welcome and Logout</button> -->
                 <!-- If logout is clicked, 
                     redirected to the home page
                     with 'My Account' shown on the header -->
                 </section>
-    <button onclick="toggle(this)">Hide Welcome and Logout</button>
         <section id="loggedOut">
             <a title="Click to log in" href="/account/login">My Account</a>
             <!-- hide the 'My Account' when logged in, show Welcome and Logout when logged in. 
                 if not logged in show 'My Account'. -->
             </section>
-            <button onclick="account(this)">Hide My Account</button>
+            <!-- <button onclick="account(this)">Hide My Account</button> -->
     </div>
 </header>
-<!-- <script>
-    let toggle = button => {
-    let element = document.getElementById("loggedIn");
-    let hidden = element.getAttribute("hidden");
-    
-    if (hidden) {
-       element.removeAttribute("hidden");
-    //    button.innerText = "Hide header";
-    } else {
-       element.setAttribute("hidden", "hidden");
-    //    button.innerText = "Show header";
+<script>
+    function logOut() {
+        event.preventDefault();
+        var x = document.getElementById("loggedIn");
+        if (x.style.display === "none") {
+        localStorage.setItem('display','block')
+        x.style.display = "block";
+        x.style.display = "hidden";
+        // let hidden = element.getAttribute("hidden");
+        } else {
+        localStorage.setItem('display','none')
+        x.style.display = "none";
+        }
+        console.log(localStorage)
     }
-  }
 
-    let account = button => {
-    let element = document.getElementById("loggedOut");
-    let hidden = element.getAttribute("hidden");
-    
-    if (hidden) {
-       element.removeAttribute("hidden");
-    //    button.innerText = "Hide header";
-    } else {
-       element.setAttribute("hidden", "hidden");
-    //    button.innerText = "Show header";
-    }
-  }
+    function checkDisplay(){
+      var x = document.getElementById("loggedIn");
+      x.style.display = localStorage.getItem('display');
+}
 </script>
 <style>
     a {
         margin-left: 5px;
     }
-</style> -->
+</style>
