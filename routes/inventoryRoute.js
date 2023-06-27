@@ -41,12 +41,15 @@ router.post(
 )
 
 // update inventory post
-// router.post("/update/", invController.updateInventory)
+router.post("/update/", invController.updateInventory)
 
 /* *************************
 * Get inventory for AJAZ Route
 * Unit 5 activity
 **************************/
-router.get("/getInventory/:classification_id", utilities.handleErrors(invController.getInventoryJSON))
+router.get(
+  "/getInventory/:classification_id",
+  // utilities.checkAccountType,
+  utilities.handleErrors(invController.getInventoryJSON))
 
 module.exports = router;

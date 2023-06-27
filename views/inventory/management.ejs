@@ -6,9 +6,9 @@
     <div><%- messages() %></div>
 
     <!-- add new classification view -->
-<a id="classification" href="/inv/add-classification/">Add new Classification</a>
+<a id="classification" href="/inv/add-classification/" title="Click to add new vehicle classification">Add new Classification</a>
     <!-- add new inventory view -->
-<a id="inventory" href="/inv/add-inventory/">Add new Inventory</a>
+<a id="inventory" href="/inv/add-inventory/" title="Click to add new vehicle">Add new Inventory</a>
 
 <h2>Manage Inventory</h2>
 <p>Choose a classification to see those inventory items.</p>
@@ -24,13 +24,25 @@
 
 
 <style>
-    /* main {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
-        margin: 50px;
-    }
-    a {
-        padding-bottom: 15px;
-    } */
+    main{
+          display: flex;
+          flex-direction: column; 
+          align-items: center;
+        }
+        input {
+        width: 100%;
+        }
+        #button {
+          background-color: rgb(37, 150, 190);
+          border: none;
+          color: black;
+          font-size: 15px;
+          padding: 10px 20px;
+          text-decoration: none;
+          margin: 4px 2px;
+          cursor: pointer;
+        }
+        span {
+          font-weight: bold;
+        } 
 </style>

@@ -5,8 +5,15 @@
 
     <div><%- messages() %></div>
 
-    <h1>Welcome</h1>  
-    <div><%# account_firstname %></div>
+    <h2>Welcome <%# locals.accountData.account_firstname %></h2>  
     <p>You're logged in.</p>
 
     <a href="./account-update">Edit Account Information</a>
+
+<style>
+    main{
+          display: flex;
+          flex-direction: column; 
+          align-items: center;
+        }
+</style>

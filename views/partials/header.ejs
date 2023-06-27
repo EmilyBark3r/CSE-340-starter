@@ -4,25 +4,15 @@
     </span>
     <div id="tools">
         <section id="loggedIn">
-            <body onload="checkDisplay()">
-            <a title="Click to go to account-management" href="./account\account-management">Welcome <%# account_firstname %> |</a>
-                <!-- when Welcome Basic is clicked, it will take them to account managment view -->
-        
+            <a title="Click to go to account-management" href="./account\account-management">Welcome <%# locals.accountData.account_firstname %> |</a>
             <a onClick="logOut()" title="Click to log out" href="http://localhost:5500/" >Logout |</a>
-            <!-- <button onclick="toggle(this)">Hide Welcome and Logout</button> -->
-                <!-- If logout is clicked, 
-                    redirected to the home page
-                    with 'My Account' shown on the header -->
                 </section>
         <section id="loggedOut">
             <a title="Click to log in" href="/account/login">My Account</a>
-            <!-- hide the 'My Account' when logged in, show Welcome and Logout when logged in. 
-                if not logged in show 'My Account'. -->
             </section>
-            <!-- <button onclick="account(this)">Hide My Account</button> -->
     </div>
 </header>
-<script>
+<!-- <script>
     function logOut() {
         event.preventDefault();
         var x = document.getElementById("loggedIn");
@@ -42,7 +32,7 @@
       var x = document.getElementById("loggedIn");
       x.style.display = localStorage.getItem('display');
 }
-</script>
+</script> -->
 <style>
     a {
         margin-left: 5px;

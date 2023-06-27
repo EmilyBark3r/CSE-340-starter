@@ -18,7 +18,7 @@ require("dotenv").config()
 * *************************************** */
 async function buildLogin(req, res, next) {
   let nav = await utilities.getNav()
-  res.render("./account/login", {
+  res.render("account/login", {
     title: "Login",
     nav,
     errors: null,
@@ -30,7 +30,7 @@ async function buildLogin(req, res, next) {
 * *************************************** */
 async function buildRegister(req, res, next) {
   let nav = await utilities.getNav()
-  res.render("./account/register", {
+  res.render("account/register", {
     title: "Register",
     nav,
     errors: null,
@@ -43,7 +43,7 @@ async function buildRegister(req, res, next) {
 * *************************************** */
 async function buildAccountManagement(req, res, next) {
   let nav = await utilities.getNav()
-  res.render("./account/account-management", {
+  res.render("account/account-management", {
     title: "Manage Account",
     nav,
     errors: null,
@@ -68,7 +68,7 @@ try {
   hashedPassword = await bcrypt.hashSync(account_password, 10)
 } catch (error) {
   req.flash("notice", 'Sorry, there was an error processing the registration.')
-  res.status(500).render("/register", {
+  res.status(500).render("account/register", {
     title: "Registration",
     nav,
     errors: null,
@@ -87,13 +87,14 @@ const regResult = await accountModel.registerAccount(
       "notice",
       `Congratulations, you\'re registered ${account_firstname}. Please log in.`
     )
-    res.status(201).render("/login", {
+    res.status(201).render("account/login", {
       title: "Login",
       nav,
+      errors: null,
     })
   } else {
     req.flash("notice", "Sorry, the registration failed.")
-    res.status(501).render("/register", {
+    res.status(501).render("account/register", {
       title: "Registration",
       nav,
       errors: null,

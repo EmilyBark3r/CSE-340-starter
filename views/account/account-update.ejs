@@ -12,7 +12,7 @@
             <input type="text" name="account_lastname" id="account_lastname" required value="<%= locals.account_lastname %>" />
         <label for="account_email">Email Address:</label>
             <input type="email" name="account_email" id="account_email" required value="<%= locals.account_email %>" />
-        <button id="buttonAccount" type="submit">Update Account</button>
+        <button id="button" type="submit">Update Account</button>
     </form>
 <br>
 <!-- Change Password -->
@@ -22,33 +22,31 @@
         <input type="password" name="account_password" id="accountPassword" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$">
         <span>Passwords must be at least 12 characters and contain at least 1 number, 1 capital letter and 1 special character</span> 
         <br>
-        <button id="buttonPassword" type="submit">Update Password</button>
+        <button id="button" type="submit">Update Password</button>
     </form>
 <!-- </fieldset> -->
 
 <style>
     main{
-      display: flex;
-      flex-direction: column;
-      margin-left: 350px;
-      margin-right: 350px;
-      /* grid-template-columns: 1fr 1fr 1fr; */
-  
-    }
-    input {
-    width: 100%;
-    }
-    #buttonAccount, #buttonPassword {
-      background-color: rgb(37, 150, 190);
-      border: none;
-      color: black;
-      font-size: 15px;
-      padding: 10px 20px;
-      text-decoration: none;
-      margin: 4px 2px;
-      cursor: pointer;
-    }
-    span {
-      font-weight: bold;
-    }
+          display: flex;
+          flex-direction: column; 
+          align-items: center;
+        }
+        input {
+        width: 100%;
+        }
+        #button {
+          background-color: rgb(37, 150, 190);
+          border: none;
+          color: black;
+          font-size: 15px;
+          padding: 10px 20px;
+          text-decoration: none;
+          margin: 4px 2px;
+          cursor: pointer;
+          align-items: center;
+        }
+        span {
+          font-weight: bold;
+        } 
   </style> 
