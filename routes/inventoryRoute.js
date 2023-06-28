@@ -20,6 +20,15 @@ router.get("/broken", utilities.handleErrors(invController.error))
 router.get("/add-classification", utilities.handleErrors(invController.buildClassificationView))
 // Route to build inventory view
 router.get("/add-inventory", utilities.handleErrors(invController.buildInventoryView))
+// Delete view get
+router.get(
+  "/delte/:inv_id",
+  utilities.handleErrors(invController.deleteView)
+)
+
+// Delete view post
+router.post("/delete",
+utilities.handleErrors(invController.deleteItem))
 
 //add classification
 router.post(
