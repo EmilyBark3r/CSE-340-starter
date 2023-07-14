@@ -1,0 +1,18 @@
+<% if (title) { %>
+    <h1><%= title %></h1>
+    <% } else { res.redirect('/')} %>
+
+    <div><%- messages() %></div>
+
+    <h2><%- locals.accountData.account_firstname %><%- locals.accountData.account_lastname %> Inbox</h2>
+
+    <ul>
+        <li><a href="./new-message">Create New Message</a></li>
+        <li><a href="./archives">View <%- archiveCount %> Archived Messages</a></li>
+    </ul>
+
+    <table id="message"></table>
+
+<!-- <noscript>Javascript must be enabled to use this page.</noscript> -->
+
+<!-- <script src="../../js/inventory.js"></script> -->

@@ -27,11 +27,10 @@ async function checkExistingEmail(account_email){
     }
   }
 
-  /* *****************************
+/* *****************************
 * Return account data using email address
-* Unit 5 Login Activity, at the bottom
 * ***************************** */
-async function getAccountByEmail(account_email) {
+async function getAccountByEmail (account_email) {
   try {
     const result = await pool.query(
       'SELECT account_id, account_firstname, account_lastname, account_email, account_type, account_password FROM account WHERE account_email = $1',
@@ -41,5 +40,10 @@ async function getAccountByEmail(account_email) {
     return new Error("No matching email found")
   }
 }
+
+
+// update account
+
+// update account password
 
   module.exports = { registerAccount, checkExistingEmail, getAccountByEmail }

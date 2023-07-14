@@ -1,0 +1,23 @@
+<% if (title) { %>
+    <h1><%= title %></h1>
+    <% } else { res.redirect('/')} %>
+
+    <div><%- messages() %></div>
+
+    <h2>New Message</h2>
+
+    <label for="to">To:</label>
+  <select name="to" id="to" required>
+    <option value="basic@340.edu">Basic Client</option>
+    <option value="happy@340.edu">Happy Employee</option>
+    <option value="manager@340.edu">Admin Manager</option>
+  </select>
+  
+  <label for="subject">Subject:</label>
+  <input type="text" name="subject" id="subject" required>
+  
+  <label for="message">Message:</label>
+  <textarea name="message" id="message" required></textarea>
+  
+  <button type="submit">Send</button>
+</form>

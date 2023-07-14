@@ -91,7 +91,6 @@ invCont.buildInventoryView = async function (req, res, next){
 
 /* ***************************
  *  Update Inventory Data
- *  Unit 5 activity
  * ************************** */
 invCont.updateInventory = async function (req, res, next) {
   let nav = await utilities.getNav()
@@ -183,7 +182,6 @@ const regResult = await invModel.addNewClassification(classification_name)
 
 /* ***************************
  *  Return Inventory by Classification As JSON
- *  Unit 5 activity
  * ************************** */
 invCont.getInventoryJSON = async (req, res, next) => {
   const classification_id = parseInt(req.params.classification_id)
@@ -197,15 +195,14 @@ invCont.getInventoryJSON = async (req, res, next) => {
 
 /* ***************************
  *  Build edit inventory view
- *  Unit 5 activity
  * ************************** */
 invCont.editInventoryView = async function (req, res, next) {
   const inv_id = parseInt(req.params.inv_id)
   let nav = await utilities.getNav()
-  const itemData = await invModel.getVehicleByInventoryId(inv_id)
-  const classificationSelect = await utilities.getClassificationOptions(itemData.classification_id)
+  const itemData = await invModel.getInventoryById(inv_id)
+  const classificationSelect = await utilities.buildClassificationList(itemData.classification_id)
   const itemName = `${itemData.inv_make} ${itemData.inv_model}`
-  res.render("./inventory/edit-inventory/", {
+  res.render("./inventory/edit-inventory", {
     title: "Edit " + itemName,
     nav,
     classificationSelect: classificationSelect,

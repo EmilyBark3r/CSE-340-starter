@@ -102,9 +102,9 @@ const regResult = await accountModel.registerAccount(
   }
 }
 
+
 /* ****************************************
  *  Process login request
- *  Unit 5 Login Activity, at the very bottom
  * ************************************ */
 async function accountLogin(req, res) {
   let nav = await utilities.getNav()
@@ -112,7 +112,7 @@ async function accountLogin(req, res) {
   const accountData = await accountModel.getAccountByEmail(account_email)
   if (!accountData) {
    req.flash("notice", "Please check your credentials and try again.")
-   res.status(400).render("/account/login", {
+   res.status(400).render("account/login", {
     title: "Login",
     nav,
     errors: null,
@@ -123,8 +123,7 @@ async function accountLogin(req, res) {
   try {
    if (await bcrypt.compare(account_password, accountData.account_password)) {
    delete accountData.account_password
-   const accessToken = jwt.sign(accountData, process.env.
-   ACCESS_TOKEN_SECRET, { expiresIn: 3600 * 1000 })
+   const accessToken = jwt.sign(accountData, process.env.ACCESS_TOKEN_SECRET, { expiresIn: 3600 * 1000 })
    res.cookie("jwt", accessToken, { httpOnly: true, maxAge: 3600 * 1000 })
    return res.redirect("/account/")
    }
@@ -132,7 +131,7 @@ async function accountLogin(req, res) {
    return new Error('Access Forbidden')
   }
  }
-
+ 
 /* ****************************************
  *  Process Account Update
  *  Unit 5 Task 4

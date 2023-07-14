@@ -42,23 +42,28 @@ router.post(
 //add inventory
 router.post(
   "/add-inventory",
-//   (req, res) => {
-//   regValidate.registationRules(),
-//   regValidate.checkRegData,
+  (req, res) => {
+  regValidate.registationRules(),
+  regValidate.checkRegData,
   utilities.handleErrors(invController.buildInventoryView)
-  // }
+  }
 )
 
 // update inventory post
-router.post("/update/", invController.updateInventory)
+router.post(
+  "/update/", 
+  (req, res) => {
+  regValidate.newInventoryRules(),
+  regValidate.checkUpdateData,
+  utilities.handleErrors(invController.updateInventory)
+  }
+)
 
 /* *************************
 * Get inventory for AJAZ Route
 * Unit 5 activity
 **************************/
-router.get(
-  "/getInventory/:classification_id",
-  // utilities.checkAccountType,
-  utilities.handleErrors(invController.getInventoryJSON))
+router.get("/getInventory/:classification_id", utilities.handleErrors(invController.getInventoryJSON))
+
 
 module.exports = router;

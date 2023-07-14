@@ -1,0 +1,15 @@
+<% if (title) { %>
+    <h1><%= title %></h1>
+    <% } else { res.redirect('/')} %>
+
+    <div><%- messages() %></div>
+
+    <h2><%- locals.accountData.account_firstname %><%- locals.accountData.account_lastname %> Archives</h2>
+
+    <a href="./inbox">Return to Inbox</a>
+
+    <table id="archivesDisplay"></table>
+
+    <!-- <noscript>Javascript must be enabled to use this page.</noscript> -->
+    
+    <!-- <script src="../../js/inventory.js"></script> -->

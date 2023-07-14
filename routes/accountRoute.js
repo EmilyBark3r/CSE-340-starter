@@ -25,11 +25,8 @@ router.get("/account-update", utilities.handleErrors(accountController.accountUp
  * Deliver Account Management View
  * Unit 5
 ********************/
-router.get(
-  "/",
-  utilities.checkLogin,
-  utilities.handleErrors(accountController.buildAccountManagement)
-)
+router.get("/", utilities.checkLogin, utilities.handleErrors(accountController.buildAccountManagement))
+
 
 // Process the registration data
 router.post(
@@ -39,12 +36,12 @@ router.post(
     utilities.handleErrors(accountController.registerAccount)
   )
 
-// Process the login attempt
+// Process the login request
 router.post(
   "/login",
-    regValidate.loginRules(),
-    regValidate.checkRegData,
-    utilities.handleErrors(accountController.accountLogin)
+  regValidate.loginRules(),
+  regValidate.checkLoginData,
+  utilities.handleErrors(accountController.accountLogin)
 )
 
 // Process the account-management

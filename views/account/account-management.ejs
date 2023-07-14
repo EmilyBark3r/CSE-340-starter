@@ -5,10 +5,17 @@
 
     <div><%- messages() %></div>
 
-    <h2>Welcome <%# locals.accountData.account_firstname %></h2>  
+    <h2>Welcome <%- locals.accountData.account_firstname %></h2>  
     <p>You're logged in.</p>
 
     <a href="./account-update">Edit Account Information</a>
+
+
+    <h2>Message Center</h2>
+    <ul>
+        <li>You have ${count} unread messages.</li>
+        <li>Got to <a href="./inbox"></a></li>
+    </ul>
 
 <style>
     main{
